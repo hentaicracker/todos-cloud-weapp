@@ -1,0 +1,14 @@
+{
+  "miniprogramRoot": "./dist",
+  "cloudfunctionRoot": "./cloud/",
+  "projectname": "todos-cloud",
+  "description": "todos cloud demo",
+  "appid": "wxf40e310c7f3f5fd5",
+  "setting": {
+    "urlCheck": true,
+    "es6": false,
+    "postcss": false,
+    "minified": false
+  },
+  "compileType": "miniprogram"
+}
