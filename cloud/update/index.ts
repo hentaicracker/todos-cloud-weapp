@@ -13,8 +13,8 @@ export const main = async (event) => {
 
   let res
   try {
-    res = await collection.add({
-      data: todo,
+    res = await collection.doc(todo.id).update({
+      data: todo
     })
   } catch (e) {
     return {

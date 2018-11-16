@@ -1,21 +1,19 @@
 import cloud = require('wx-server-sdk')
 
 export const main = async (event) => {
-  const { name, todo } = event
-
-  todo.due = new Date(todo.due)
+  const { name, id } = event
 
   cloud.init() // 初始化云平台
 
   const db = cloud.database()
+  
+  const command = db.command
 
   const collection = db.collection(name)
 
   let res
   try {
-    res = await collection.add({
-      data: todo,
-    })
+    res = await collection.doc(id).remove()
   } catch (e) {
     return {
       retCode: 1,

@@ -1,0 +1,14 @@
+{
+  "name": "todos",
+  "version": "1.0.0",
+  "description": "todos crud",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "chenjunsheng",
+  "license": "MIT",
+  "dependencies": {
+    "wx-server-sdk": "^0.0.24"
+  }
+}

@@ -1,0 +1,27 @@
+/*postcss-pxtransform disable*/
+
+page {
+  height: 100%;
+}
+
+.detail {
+  height: 100%;
+
+  &__btn {
+    position: fixed;
+    box-sizing: border-box;
+    padding: 0 20px;
+    bottom: 30px;
+    left: 0;
+    width: 100%;
+  }
+}
+
+.at-form {
+  height: 100%;
+  padding: 32rpx;
+
+  .at-textarea {
+    margin-top: 10px;
+  }
+}

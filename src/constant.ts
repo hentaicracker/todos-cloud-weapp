@@ -1,14 +1,20 @@
 export const envId = 'test-4432d3'
 
+export const text = {
+  EDIT: '编辑',
+  DELETE: '删除',
+  ADD_SUCCESS: '添加成功',
+}
+
 export const actionOptions = [
   {
-    text: '编辑',
+    text: text.EDIT,
     style: {
       backgroundColor: '#6190E8'
     }
   },
   {
-    text: '删除',
+    text: text.DELETE,
     style: {
       backgroundColor: '#FF4949'
     }

@@ -1,8 +1,7 @@
 import cloud = require('wx-server-sdk')
 
-export const main = async (event, context) => {
+export const main = async (event) => {
   const { name } = event
-  console.log('name=========', name)
 
   cloud.init() // 初始化云平台
 
@@ -19,7 +18,6 @@ export const main = async (event, context) => {
       retMsg: '系统错误'
     }
   }
-  console.log('name=========', res)
 
   return {
     retCode: 0,
