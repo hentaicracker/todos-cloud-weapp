@@ -101,7 +101,10 @@ export default class Index extends Component<{}, IndexState> {
           show: true,
           text: '删除成功',
           duration: 2000,
-        }
+        },
+        showModal: false,
+      }, () => {
+        this.getData()
       })
     }
   }
