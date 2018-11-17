@@ -10,6 +10,7 @@ import {
 } from 'taro-ui'
 import * as constant from '../../constant'
 import { Todo, TodoStatus, Toast } from '../../interface'
+import { queryString } from '../../utils'
 import './index.scss'
 
 export interface IndexState {
@@ -69,16 +70,20 @@ export default class Index extends Component<{}, IndexState> {
   handleActionClick (id, e) {
     this.setState({
       activeTodoId: id,
+    }, () => {
+      const functions = {
+        [`${constant.text.EDIT}`]: this.updateTodo.bind(this),
+        [`${constant.text.DELETE}`]: this.deleteTodo.bind(this),
+      }
+      functions[e.text]()
     })
-    const functions = {
-      [`${constant.text.EDIT}`]: this.updateTodo.bind(this),
-      [`${constant.text.DELETE}`]: this.deleteTodo.bind(this),
-    }
-    functions[e.text]()
   }
 
   updateTodo () {
-
+    const activeTodo = this.state.dataSource.find(item => item._id === this.state.activeTodoId)
+    Taro.navigateTo({
+      url: `/pages/detail/index?${queryString(activeTodo)}`
+    })
   }
 
   deleteTodo () {

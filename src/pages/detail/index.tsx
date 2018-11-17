@@ -15,6 +15,7 @@ import './index.scss'
 interface DetailState {
   todo: Todo,
   toast: Toast,
+  isEdit: boolean,
 }
 
 export default class Index extends Component<{}, DetailState> {
@@ -35,17 +36,34 @@ export default class Index extends Component<{}, DetailState> {
       show: false,
       text: '',
       duration: 2000,
+    },
+    isEdit: false,
+  }
+
+  componentWillMount () {
+    const { _id, name, description, done, due } = this.$router.params
+    if (_id) {
+      this.setState({
+        todo: {
+          id: _id,
+          name,
+          description,
+          done,
+          due,
+        },
+        isEdit: true
+      })
     }
   }
 
-
-  async componentDidMount () {
-
-  }
-
   async handleSubmit (e) {
-    const { todo, toast } = this.state
-    const res = await Taro.service.addTodo(todo)
+    const { todo, toast, isEdit } = this.state
+    let res
+    if (isEdit) {
+      res = await Taro.service.updateTodo(todo)
+    } else {
+      res = await Taro.service.addTodo(todo)
+    }
     if (res) {
       toast.show = true
       toast.text = constant.text.ADD_SUCCESS
@@ -89,7 +107,7 @@ export default class Index extends Component<{}, DetailState> {
                 name='name'
                 title=''
                 type='text'
-                placeholder='here...'
+                placeholder=''
                 value={todo.name}
                 onChange={this.handleNameChange.bind(this)}
               />

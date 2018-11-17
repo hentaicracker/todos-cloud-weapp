@@ -6,8 +6,6 @@ export const main = async (event) => {
   cloud.init() // 初始化云平台
 
   const db = cloud.database()
-  
-  const command = db.command
 
   const collection = db.collection(name)
 
