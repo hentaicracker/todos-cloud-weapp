@@ -66,7 +66,7 @@ export default class Index extends Component<{}, DetailState> {
     }
     if (res) {
       toast.show = true
-      toast.text = constant.text.ADD_SUCCESS
+      toast.text = constant.text[`${isEdit ? 'EDIT_SUCCESS' : 'ADD_SUCCESS'}`]
       this.setState({
         toast,
       }, () => {

@@ -4,6 +4,7 @@ export const text = {
   EDIT: '编辑',
   DELETE: '删除',
   ADD_SUCCESS: '添加成功',
+  EDIT_SUCCESS: '编辑成功',
 }
 
 export const actionOptions = [
